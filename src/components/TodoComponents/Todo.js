@@ -1,15 +1,17 @@
 import React from "react";
-import TodoForm from "./TodoForm";
+
+import "./Todo.css";
+
 import TodoList from "./TodoList";
+import TodoForm from "./TodoForm";
 
 function Todo() {
     return (
-        <div className="todo">
-        <TodoList />
-        <TodoForm />
+        <div>
+            <TodoList />
+            <TodoForm />    
         </div>
     );
-};
+} 
 
 export default Todo;
-

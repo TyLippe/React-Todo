@@ -1,7 +1,5 @@
 import React from "react";
 
-import Task from "./TodoList"
-
 class TodoForm extends React.Component {
     constructor() {
         super();
@@ -16,38 +14,32 @@ class TodoForm extends React.Component {
             task: this.state.task
         };
         this.setState({
-            data: [...this.state.data, newTask]
+            taskData: [...this.state.taskData, newTask]
         });
-    }
-
+    };
+    
     handleChanges = event => {
         this.setState({
             [event.target.name]:event.target.value
-        });
-    };
+        })
+    }
 
-    render() {
-        return (
-            <>
-            <div>
-                {this.state.data.map(taskMapped => (
-                    <Task taskProps={taskMapped} />
-                ))}
-            </div>
-
-            <div>
-            <form>
-                <input placeholder="What now?!"
-                onChange={this.handleChanges}
-                value={this.state.task}
-                name="task" />
-            </form>
-            <button onClick={this.addTask}>Add Task</button>
-            <button>Clear Completed</button>
-            </div>
-            </>
-        );
-    };
+    render(){
+        console.log(this.state.task);
+    return (
+        <div className="form">
+        <form>
+            <input placeholder="Task"
+            onChange={this.handleChanges}
+            value= {this.state.task} 
+            name = "task"
+            />
+        </form>
+        <button onClick={this.addTask}>Add Task</button>
+        <button>Remove Completed</button>
+        </div>
+    );
+};
 };
 
 export default TodoForm;

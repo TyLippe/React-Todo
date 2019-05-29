@@ -1,13 +1,9 @@
-import React from "react"
+import React from "react";
 
-class Task extends React.Component {
-    render() {
-        return (
-            <div className="tasks">
-                <p>{this.props.taskProps}</p>
-            </div>
-        );
-    }
-}
+function TodoList() {
+    return (
+        <p>Learn React</p>
+    );
+};
 
-export default Task;
+export default TodoList;

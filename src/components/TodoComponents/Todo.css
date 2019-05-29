@@ -1,0 +1,11 @@
+.form {
+    display: flex;
+}
+.form button {
+    background-color: lightblue;
+    border: 1px black solid;
+    cursor: pointer;
+}
+.form button:hover {
+    color: white;
+}
