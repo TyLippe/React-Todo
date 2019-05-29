@@ -38,21 +38,21 @@ class TodoForm extends React.Component {
     return (
         <>
         <div>
-        {this.state.taskArray.map(taskMap =>(
-            <TodoList taskProp={this.state.taskArray} key={this.state.toDoId} />
+        {this.state.taskArray.map((taskMap, index) =>(
+            <TodoList taskProp={taskMap} key={index} />
         ))}
         </div>
 
         <div className="form">
-        <form>
+        <form >
             <input placeholder="Task"
             onChange={this.handleChanges}
             value= {this.state.task} 
             name = "task"
             />
-        </form>
-        <button onClick={this.addTask}>Add Task</button>
+        <button type="submit" onClick={this.addTask}>Add Task</button>
         <button>Remove Completed</button>
+        </form>
         </div>
         </>
     );

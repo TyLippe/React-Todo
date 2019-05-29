@@ -1,13 +1,12 @@
 import React from "react";
 
-class TodoList extends React.Component {
-    render(){
+function TodoList (props) {
         return (
         <div className="list">
-            <h1>{this.props.taskProp.task}</h1>
+            {console.log(props.taskProp)}
+            <p>{props.taskProp.task}</p>
         </div>
         );
-    };
 };
 
 export default TodoList;
