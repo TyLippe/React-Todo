@@ -41,11 +41,15 @@ h2 {
     text-align: center;
     cursor: pointer;
     background-color: lightcoral;
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 20px;
     box-shadow: 0 3px 3px -2px gray;
 }
 .taskcomplete {
     font-family: 'Montserrat', sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
     cursor: pointer;
     opacity: .5;
