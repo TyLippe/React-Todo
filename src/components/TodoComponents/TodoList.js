@@ -1,9 +1,15 @@
 import React from "react";
 
-function TodoList (props) {
+const TodoList = props => {
+        console.log(props)
         return (
-        <div className="list">
-            {console.log(props.taskProp)}
+
+        <div
+        className={`task${props.taskProp.complete ? 'complete' : ''}`}
+        onClick={() => props.toggleComplete(props.taskProp.id)}
+        >
+
+        {console.log(props.taskProp)}
             <p>{props.taskProp.task}</p>
         </div>
         );

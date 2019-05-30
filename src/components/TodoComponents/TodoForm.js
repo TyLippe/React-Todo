@@ -1,5 +1,6 @@
 import React from "react";
 import TodoList from "./TodoList";
+// import { isTemplateElement } from "@babel/types";
 
 class TodoForm extends React.Component {
     constructor() {
@@ -7,8 +8,8 @@ class TodoForm extends React.Component {
         this.state = {
             taskArray: [],
             task: "",
-            toDoId: Date.now(),
-            taskCompleted: false
+            id: Date.now(),
+            complete: false
         };
     };
 
@@ -16,14 +17,14 @@ class TodoForm extends React.Component {
         event.preventDefault();
         const newTask = {
             task: this.state.task,
-            toDoId: Date.now(),
-            taskCompleted: false
+            id: Date.now(),
+            complete: false
         };
         this.setState({
             taskArray: [...this.state.taskArray, newTask],
             task: "",
-            toDoId: Date.now(),
-            taskCompleted: false
+            id: Date.now(),
+            complete: false
         });
     };
     
@@ -33,26 +34,50 @@ class TodoForm extends React.Component {
         })
     }
 
+    toggleComplete =  id => {
+        this.setState({taskArray: this.state.taskArray.map(object => {
+            if (object.id === id) {
+                return {
+                    ...object,
+                    complete: !object.complete
+                }
+            }
+            else {
+                return object
+        }
+        })
+        })
+    };
+
+    removeComplete = event => {
+        event.preventDefault();
+        this.setState({taskArray: this.state.taskArray.filter(object => object.complete === false)}
+    )}
+
     render(){
         console.log(this.state.task);
     return (
         <>
-        <div>
-        {this.state.taskArray.map((taskMap, index) =>(
-            <TodoList taskProp={taskMap} key={index} />
-        ))}
-        </div>
-
         <div className="form">
         <form >
-            <input placeholder="Task"
+            <input placeholder="What Now?"
             onChange={this.handleChanges}
             value= {this.state.task} 
             name = "task"
             />
-        <button type="submit" onClick={this.addTask}>Add Task</button>
-        <button>Remove Completed</button>
+        
+        <button type="submit" 
+        onClick={this.addTask}>Add Task</button>
+        
+        <button 
+        onClick={this.removeComplete}>Remove Completed</button>
         </form>
+        </div>
+
+        <div>
+        {this.state.taskArray.map((taskMap, index) =>(
+            <TodoList taskProp={taskMap} key={index} toggleComplete={this.toggleComplete} id={taskMap.id} />
+        ))}
         </div>
         </>
     );
