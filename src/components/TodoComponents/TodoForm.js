@@ -1,4 +1,6 @@
 import React from "react";
+import ReactSearchBox from "react-search-box";
+
 import TodoList from "./TodoList";
 // import { isTemplateElement } from "@babel/types";
 
@@ -54,10 +56,27 @@ class TodoForm extends React.Component {
         this.setState({taskArray: this.state.taskArray.filter(object => object.complete === false)}
     )}
 
+    searchTask = event => {
+        event.preventDefault();
+        this.setState({taskArray: this.state.taskArray.filter(object => object.task === this.state.task)}
+        )}
+
     render(){
         console.log(this.state.task);
     return (
         <>
+        <div className="search">
+        <form>
+            {/* <ReactSearchBox
+            placeholder="Search"
+            value=""
+            data={this.state.task}
+            callback={record => console.log(record)} /> */}
+                <input placeholder="Search" 
+                onChange={this.searchTask} />
+            </form>
+        </div>
+
         <div className="form">
         <form >
             <input placeholder="What Now?"

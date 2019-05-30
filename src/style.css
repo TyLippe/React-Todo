@@ -4,7 +4,11 @@
     width: 400px;
     text-align: center;
     background-color: lightyellow;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Satisfy', cursive;
+    border-radius: 3px;
+}
+h2 {
+    font-size: 36px;
 }
 .form {
     display: flex;
@@ -17,11 +21,13 @@
     margin: 3px;
     border: none;
     cursor: pointer;
+    border-radius: 3px;
 }
 .form button:hover {
     box-shadow: 0 3px 3px -2px gray;
 }
 .task {
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     cursor: pointer;
     background-color: lightcoral;
@@ -29,6 +35,7 @@
     box-shadow: 0 3px 3px -2px gray;
 }
 .taskcomplete {
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     cursor: pointer;
     opacity: .5;
@@ -39,4 +46,12 @@
 input::placeholder{
     opacity: .7;
 }
-
+.search {
+    margin-bottom: 24px;
+}
+.search input::placeholder {
+    text-align: center;
+}
+input {
+    border-radius: 3px;
+}
