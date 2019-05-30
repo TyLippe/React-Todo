@@ -61,6 +61,11 @@ class TodoForm extends React.Component {
         this.setState({taskArray: this.state.taskArray.filter(object => object.task === this.state.task)}
         )}
 
+    clearAll = event => {
+        event.preventDefault();
+        this.setState({taskArray: this.state.taskArray.filter(object => this.state.task)}
+        )}
+
     render(){
         console.log(this.state.task);
     return (
@@ -90,6 +95,9 @@ class TodoForm extends React.Component {
         
         <button 
         onClick={this.removeComplete}>Remove Completed</button>
+
+        <button 
+        onClick={this.clearAll}>Clear All</button>
         </form>
         </div>
 

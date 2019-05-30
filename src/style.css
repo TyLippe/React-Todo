@@ -1,11 +1,21 @@
 .app {
     border: 1px black solid;
-    height: 100%;
+    height: 600px;
     width: 400px;
     text-align: center;
     background-color: lightyellow;
     font-family: 'Satisfy', cursive;
     border-radius: 3px;
+    overflow-y: auto;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: lightyellow; 
+}
+::-webkit-scrollbar-thumb {
+    background: lightcoral; 
 }
 h2 {
     font-size: 36px;
